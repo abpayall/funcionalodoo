@@ -13,18 +13,4 @@ class ResCanales(models.Model):
     clasificacion_ticket_ids = fields.One2many(string='Clasificación', comodel_name='helpdesk.ticket',
                                            inverse_name='clasificacion_ticket')
 
- #   @api.depends('partner_id')
- #   def _filtro_emails(self):
-# for ticket in self:
-            #if ticket.partner_id:
-             #   ticket.partner_id.email =
-
-    @api.depends('partner_id')
-    def _get_correos_ticket(self):
-        for ticket in self:
-            correos_users = self.env['res.partner'].search([()])
-            for correos in correos_users:
-                if ticket.partner_email != correos:
-                    print('Proceso Stop')
-                    #correos_ticket = self.env['helpdesk.ticket'].search([('partner_email', '=', correos.email)])
 

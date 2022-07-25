@@ -12,7 +12,7 @@ class HelpdeskTicketInherit(models.Model):
     clasificacion_ticket = fields.Many2one('clasificacion.ticket', string='Clasificación', index=True)
     #team_id = fields.Many2one('helpdesk.team', string='Helpdesk Team', default=_default_team_id, index=True)
     user_id = fields.Many2one(
-        'res.users', string='Assigned to', required=True, default=lambda self: self._get_user())
+        'res.users', string='Assigned to', default=lambda self: self._get_user())
     contar = fields.Float("MeasureCuenta", compute='_calculate_percentage', compute_sudo=True, store=True)
 
     @api.onchange('team_id')
